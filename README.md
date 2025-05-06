@@ -1,5 +1,5 @@
-# EXPERIMENT-06-INTERRUPT-GENERATION-USING-PUSHBUTTON-AND-SIMULATING-THE-OUTPUT
-
+# EXPERIMENT 06 INTERRUPT GENERATION USING PUSHBUTTON AND SIMULATING THE OUTPUT
+## Reg : 212223230083
 ### Aim:
 To Interface a push button and generate an interrupt , simulate it using an led and simuate it on  proteus 
 
@@ -89,14 +89,44 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
   
 
 ## STM 32 CUBE PROGRAM :
+```C
+#include "main.h"
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+
+int main(void)
+{
+
+  HAL_Init();
+
+  SystemClock_Config();
 
 
+  MX_GPIO_Init();
+
+  while (1)
+  {
+
+  }
+}
+  void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN)
+  {
+	  if(GPIO_PIN==GPIO_PIN_9)
+	  {
+		  HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_11);
+	  }
+  }
+
+```
 
 ## Output screen shots of proteus  :
- 
- 
+![Screenshot 2025-05-06 103817](https://github.com/user-attachments/assets/98151dc4-23af-4692-9bbd-218b041c499a)
+![Screenshot 2025-05-06 103902](https://github.com/user-attachments/assets/45cf60ff-3177-47f0-aa5d-dbe5f8eac407)
+
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
+ ![Screenshot 2025-05-06 103917](https://github.com/user-attachments/assets/7f7177a2-27c3-4507-a810-b6dc15a2fb4d)
+
+
  
 ## Result :
 Interfacing a push button and interrupt genrateion is simulated using proteus 
